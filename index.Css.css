@@ -1,0 +1,40 @@
+style.css (Cooler Styling with Animations)
+
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    background: #fff;
+    color: #ff4b2b;
+}
+button:hover {
+    transform: scale(1.1);
+    background: #ff4b2b;
+    color: white;
+}
+#box {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 10px;
+    transition: transform 0.5s ease-in-out, background 0.5s ease-in-out;
+}
+
+
