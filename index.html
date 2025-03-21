@@ -3,62 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>နောက်ဆုံးနေ့အလှတရား</title>
+    <title>Sign Up & Log In</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
             text-align: center;
+            margin: 50px;
         }
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
-        .image {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .text {
-            padding: 20px;
-            text-align: left;
-            line-height: 1.8;
-            font-size: 18px;
-        }
-        h1 {
-            font-size: 28px;
-            color: #444;
+        .btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="https://github.com/Thihakyawmin/whiteangel/blob/e162230c2e4b236be01b95e2ebef08af6db456c7/Free-download-Aesthetic-PC-Wallpaper-HD.png" alt="Sunset Cityscape" class="image">
-        <h1>နောက်ဆုံးနေ့အလှတရား</h1>
-        <div class="text">
-            <p>မြို့ကြီးတစ်မြို့ရဲ့နောက်ဆုံးနေ့။  
-            နံနက်မလင်းခင်ကတည်းက တိတ်ဆိတ်မှုတစ်ခုရယ်၊ မျှော်လင့်ချက်နဲ့စစ်မှန်မှုကြားကလှည့်ကွက်တွေက 
-            တိုက်တွေနဲ့မြစ်ကမ်းကို ဖုံးလွှမ်းနေခဲ့တယ်။ မိုးကောင်းကင်ထဲမှာ တပြောင်ပြောင်နဲ့အလင်းရောင်တွေ 
-            ရေပြင်ပေါ်မှာဖောက်ထွက်လာတယ်။</p>
+    <h2>Welcome</h2>
+    <button class="btn" onclick="signUp()">Sign Up</button>
+    <button class="btn" onclick="logIn()">Log In</button>
 
-            <p>ကျွန်တော်နဲ့သူမ၊ တစ်ယောက်နဲ့တစ်ယောက် စကားမပြောဘဲ၊ ရှေးအတိတ်တွေအကြောင်းမပြောဘဲ၊ 
-            အနာဂတ်အတွက်မစဉ်းစားဘဲ ထိုင်နေကြတယ်။ ညနေနေရောင်က မီးခိုးရောင်မြို့ကြီးရဲ့တစ်စိတ်တစ်ပိုင်းကို 
-            အနီရောင်တောက်ပစေခဲ့တယ်။</p>
+    <script>
+        function signUp() {
+            let user = {
+                username: "user",
+                password: "pass"
+            };
 
-            <p>“ဒီအခိုက်အတန့်ကိုမှတ်မိနေမှာလား?” သူမက မေးတယ်။  
-            “ကျွန်တော်တို့မေ့နိုင်မယ် မထင်ဘူး” ကျွန်တော်တိတ်တဆိတ် ပြန်ဖြေလိုက်တယ်။</p>
+            localStorage.setItem("account", JSON.stringify(user));
+            alert("Account created!\nUsername: user\nPassword: pass");
+        }
 
-            <p>မြို့ကြီးရဲ့နောက်ဆုံးနေ့မှာ…  
-            ဒီအလှတရားက အမွတ်တရနဲ့အတူ ချစ်ခြင်းမေတ္တာရဲ့နောက်ဆုံးအသက်ရှူသံဖြစ်နေတယ်။</p>
-        </div>
-    </div>
+        function logIn() {
+            let storedUser = localStorage.getItem("account");
+
+            if (!storedUser) {
+                alert("No account found! Please sign up first.");
+                return;
+            }
+
+            let user = JSON.parse(storedUser);
+            let username = prompt("Enter Username:");
+            let password = prompt("Enter Password:");
+
+            if (username === user.username && password === user.password) {
+                alert("Login Successful!");
+            } else {
+                alert("Invalid Username or Password.");
+            }
+        }
+    </script>
 
 </body>
 </html>
